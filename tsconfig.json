@@ -11,9 +11,8 @@
     "allowJs": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "rootDir": "./src",
     "noImplicitAny": true
   },
   "include": ["./src"],
-  "exclude": ["./client"]
+  "exclude": ["./client", "./node_modules"]
 }
