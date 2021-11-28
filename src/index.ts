@@ -1,13 +1,46 @@
 import express from "express"
 import dotenv from "dotenv"
+import cors from "cors"
+import session from "express-session"
+import passport from "passport"
 import connectDB from "./config/connectDB"
 
 dotenv.config()
+
 connectDB()
+
 const app = express()
 
+// Config middlewares
+app.use(express.json())
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  })
+)
+
+app.set("trust proxy", 1)
+
+app.use(
+  session({
+    secret: process.env.EXPRESS_SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7, // One Week
+    },
+  })
+)
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+//routes
 app.get("/", (req, res) => {
-  res.send("hello world")
+  res.send("Api is running...")
 })
 
 const port = process.env.PORT || 5000
