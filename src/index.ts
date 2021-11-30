@@ -1,13 +1,10 @@
 import express from "express"
 import dotenv from "dotenv"
+dotenv.config()
 import cors from "cors"
 import session from "express-session"
 import passport from "passport"
-import connectDB from "./config/connectDB"
-
-dotenv.config()
-
-connectDB()
+import "./config/passportSetup"
 
 const app = express()
 
