@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/index.js",
     "heroku-prebuild": "npm install",
-    "buildt": "tsc -p .",
-    "buildw": "webpack",
+    "build/w/tsc": "tsc -p .",
     "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "webpack",
+    "start:dev": "NODE_ENV=development webpack",
+    "run:dev": "NODE_ENV=development nodemon build/index.js",
     "tsc": "tsc "
   },
   "author": "",
@@ -20,11 +21,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "mongoose": "^6.0.13",
+    "mongoose": "^6.0.14",
     "passport": "^0.5.0",
     "passport-github": "^1.1.0",
     "passport-google-oauth2": "^0.2.0",
-    "passport-twitter": "^0.1.5"
+    "passport-twitter": "^1.0.4"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
@@ -43,6 +44,6 @@
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
     "webpack-node-externals": "^3.0.0",
-    "webpack-shell-plugin": "^0.5.0"
+    "webpack-shell-plugin-next": "^2.2.2"
   }
 }

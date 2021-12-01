@@ -1,4 +1,7 @@
 const path = require("path")
+const nodeExternals = require("webpack-node-externals")
+const WebpackShellPlugin = require("webpack-shell-plugin-next")
+
 const { NODE_ENV = "production" } = process.env
 module.exports = {
   entry: "./src/index.ts",
@@ -19,4 +22,15 @@ module.exports = {
       },
     ],
   },
+  externals: [nodeExternals()],
+  watch: NODE_ENV === "development",
+  plugins: [
+    new WebpackShellPlugin({
+      onBuildEnd: {
+        scripts: ["npm run run:dev"],
+        blocking: false,
+        parallel: true,
+      },
+    }),
+  ],
 }
