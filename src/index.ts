@@ -7,6 +7,7 @@ import cors from "cors"
 import session from "express-session"
 import passport from "passport"
 import "./config/passportSetup"
+import authRoutes from "./routes/authRoutes"
 
 const app = express()
 
@@ -41,6 +42,10 @@ app.use(passport.session())
 app.get("/", (req, res) => {
   res.send("Api is running...")
 })
+
+//auth routes
+
+app.use("/auth", authRoutes)
 
 const port = process.env.PORT || 5000
 app.listen(port, () =>
