@@ -1,16 +1,8 @@
 import passport from "passport"
 import { Strategy as GoogleStrategy } from "passport-google-oauth2"
-import dotenv from "dotenv"
 import { Error } from "mongoose"
-import connectDB from "./connectDB"
 import User from "../models/userModel"
-import { IMongoDBUser } from "src/types/IMongoDBUser"
-
-dotenv.config()
-
-connectDB()
-
-const g: string = "jshdfj"
+import { IMongoDBUser } from "../types/IMongoDBUser"
 
 passport.serializeUser((user: IMongoDBUser, done: any) => {
   return done(null, user._id)

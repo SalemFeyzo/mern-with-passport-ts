@@ -1,6 +1,8 @@
-import express from "express"
 import dotenv from "dotenv"
 dotenv.config()
+import connectDB from "./config/connectDB"
+connectDB()
+import express from "express"
 import cors from "cors"
 import session from "express-session"
 import passport from "passport"

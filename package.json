@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/index.js",
     "heroku-prebuild": "npm install",
-    "build": "tsc -p .",
+    "buildt": "tsc -p .",
+    "buildw": "webpack",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "tslist": "tsc --listFiles"
+    "tsc": "tsc "
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +37,12 @@
     "@types/passport-google-oauth2": "^0.1.4",
     "@types/passport-twitter": "^1.0.37",
     "nodemon": "^2.0.15",
+    "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }
