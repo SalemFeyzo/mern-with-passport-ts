@@ -10,13 +10,13 @@ router.get(
 
 router.get(
   "/google/callback",
-  passport.authenticate(
-    "google",
-    { failureRedirect: "http://localhost:5000", session: true },
-    (req, res) => {
-      res.redirect("http://localhost:5000")
-    }
-  )
+  passport.authenticate("google", {
+    failureRedirect: "http://localhost:3000/login",
+    session: true,
+  }),
+  (req, res) => {
+    res.redirect("http://localhost:3000")
+  }
 )
 
 export default router
