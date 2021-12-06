@@ -4,7 +4,7 @@ import Github from "../assets/github.svg"
 
 const Login = () => {
   const loginWithGoogle = () => {
-    window.open("http://localhost:5000/auth/google")
+    window.open("http://localhost:5000/auth/google", "_self")
   }
 
   return (
