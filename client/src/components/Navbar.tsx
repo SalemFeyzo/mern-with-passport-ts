@@ -3,6 +3,10 @@ import Drawer from "./Drawer"
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false)
+
+  const logout = () => {
+    window.open("http://localhost:5000/api/auth/logout", "_self")
+  }
   return (
     <>
       <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
@@ -18,7 +22,13 @@ const Navbar: React.FC = () => {
           <span className="text-3xl font-bold text-primary">Social</span>
           <span className="text-lg font-bold mt-2">Network</span>
         </div>
+        <div className="flex-none">
+          <button className="btn btn-ghost" onClick={logout}>
+            Logout
+          </button>
+        </div>
       </div>
+
       <Drawer open={open} setOpen={setOpen} />
     </>
   )

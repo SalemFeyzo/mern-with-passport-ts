@@ -3,6 +3,11 @@ import passport from "passport"
 
 const router = express.Router()
 
+router.get("/logout", (req, res) => {
+  req.logOut()
+  res.redirect("http://localhost:3000/")
+})
+
 router.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
